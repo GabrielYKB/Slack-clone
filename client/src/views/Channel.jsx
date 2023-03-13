@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import Message from "../components/Message";
 import { useParams } from "react-router-dom";
 
-export default function Channel() {
+export default function Channel({ username }) {
   const { id } = useParams();
   const [text, setText] = useState("");
 
@@ -18,8 +18,8 @@ export default function Channel() {
   async function sendMessage() {
     await fetch("http://localhost:3000/channels/" + id, {
       method: "POST",
-      body: JSON.stringify({ text: text }),
-      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ text: text, username: username }),
+      headers: { "Content-Type": "application/json" },
     });
   }
 

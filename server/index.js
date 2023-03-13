@@ -62,11 +62,20 @@ app.get("/channels/:id", async (req, res) => {
 
 app.post("/channels/:id", async (req, res) => {
   console.log(req.body);
+  await Message.create({
+    text: req.body.text,
+    user: {
+      name: req.body.username,
+      image:
+        "https://api.dicebear.com/5.x/adventurer/svg?seed=" + req.body.username,
+    },
+    channelId: req.params.id,
+  });
   res.send("oki");
 });
 
 app.listen(3000, async () => {
   await mongoose.connect(
-    "mongodb+srv://user:admin@cluster0.sttbdxj.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://gab:gab@cluster0.r3xwl1z.mongodb.net/?retryWrites=true&w=majority"
   );
 });

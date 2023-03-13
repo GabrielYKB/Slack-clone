@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
@@ -16,7 +16,7 @@ export default function App() {
               path="/"
               element={<div className="chat-section">chat section</div>}
             />
-            <Route path="/:id" element={<Channel />} />
+            <Route path="/:id" element={<Channel username={name} />} />
           </Routes>
         </>
       ) : (
