@@ -29,7 +29,7 @@ export default function Channel({ username }) {
         ? messages.map((message) => <Message message={message} />)
         : "Loading..."}
       <div>
-        <input type="text" onClick={(e) => setText(e.target.value)} />
+        <input type="text" onChange={(e) => setText(e.target.value)} />
         <button onClick={() => sendMessage()}>Send message</button>
       </div>
     </div>
