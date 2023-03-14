@@ -22,7 +22,7 @@ export default function App() {
       ) : (
         <div>
           <h1>Välkommen till min Slack-clon</h1>
-          <button onClick={() => setName("Gabriel")}>Login as {name}</button>
+          <button onClick={() => setName("Gabriel")}>Login as Gabriel</button>
         </div>
       )}
     </div>
